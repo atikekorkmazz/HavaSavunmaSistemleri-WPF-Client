@@ -1,0 +1,29 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build outputs
+bin/
+obj/
+
+# Debug / Release
+[Bb]in/
+[Oo]bj/
+
+# NuGet
+packages/
+
+# Logs & databases
+*.log
+*.db
+*.db-shm
+*.db-wal
+
+# DLLs (generated)
+*.dll
+*.exe
+
+# Rider / VS Code (olur da açarsan)
+.idea/
+.vscode/

@@ -1,0 +1,116 @@
+﻿<Window x:Class="mainArayuz.asama2arayuz"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vlc="clr-namespace:LibVLCSharp.WPF;assembly=LibVLCSharp.WPF"
+        xmlns:local="clr-namespace:mainArayuz"
+        mc:Ignorable="d"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        MouseDown="Window_MouseDown"
+        Loaded="Window_Loaded"
+        Title="asama2arayuz" Height="675" Width="1200">
+    <Border x:Name="pencere"
+    Background="#2a2a1e"
+    BorderBrush="#575840"
+    BorderThickness="5">
+
+        <Grid Margin="0,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="511*"/>
+                <RowDefinition Height="121*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Güncellenen kısım burası -->
+            <Grid Grid.Row="1" Grid.Column="1" Grid.RowSpan="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <!-- AŞAMA -->
+                    <Viewbox Stretch="Uniform" Height="70" Margin="0,0,0,70">
+                        <Grid>
+                            <Path Stroke="#646a4e" StrokeThickness="3" Fill="#b59752"
+                Data="M 450 200 L 150 200 L 100 150 L 100 100 L 500 100 L 500 150 Z" 
+                Stretch="Fill" Height="70" Width="180"
+                HorizontalAlignment="Center"/>
+
+                            <TextBlock Text="AŞAMA"
+                                Foreground="#2a2a1e" FontSize="12" FontWeight="Bold"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Margin="0,10,0,0"
+                                TextAlignment="Center"/>
+                            <Label x:Name="asamaBilgisi"
+                                   HorizontalAlignment="Center" 
+                                   Margin="0,26,0,0" 
+                                   VerticalAlignment="Top" 
+                                   Height="42" Width="100"/>
+                        </Grid>
+                    </Viewbox>
+
+                    <Viewbox Stretch="Uniform" Height="70" Margin="0,0,0,45">
+                        <Grid>
+                            <Path Stroke="#646a4e" StrokeThickness="3" Fill="#b59752"
+                Data="M 450 200 L 150 200 L 100 150 L 100 100 L 500 100 L 500 150 Z" 
+                Stretch="Fill" Height="70" Width="180"
+                HorizontalAlignment="Center"/>
+
+                            <TextBlock Text="DURUM"
+                Foreground="#2a2a1e" FontSize="12" FontWeight="Bold"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Margin="0,10,0,0"
+                TextAlignment="Center"/>
+                            <Label x:Name="durumLabel"
+                                   Content="  Hedef takip ediliyor"
+                                   HorizontalAlignment="Center" 
+                                   Margin="0,26,0,0" 
+                                   VerticalAlignment="Top" 
+                                   Height="42" Width="127"/>
+                        </Grid>
+                    </Viewbox>
+
+                </StackPanel>
+            </Grid>
+
+
+            <Rectangle RadiusY="5" RadiusX="5" Fill="black" Margin="425,5,425,5"/>
+
+            <Border Background="#333" Grid.Column="0">
+                <TextBlock Text="   ATA AIT SIMURG"
+               Foreground="White"
+               VerticalAlignment="Center"
+               Margin="0,0,0,0"/>
+            </Border>
+
+            <Border Background="#333" Grid.Column="1">
+                <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        Margin="0,0,0,0">
+                    <Button Height="30" Width="30" Content="_" Click="Pencere_Kucult"/>
+                    <Button Height="30" Width="30" Content="🔲" Click="Tam_Ekran"/>
+                    <Button Height="30" Width="30" Content="❌" Click="Ekrani_Kapat"/>
+                </StackPanel>
+            </Border>
+
+            <vlc:VideoView x:Name="videoView"
+               Grid.Row="1"
+               Grid.RowSpan="2"
+               Grid.Column="0"
+               HorizontalAlignment="Stretch"
+               VerticalAlignment="Stretch"/>
+        </Grid>
+    </Border>
+</Window>
